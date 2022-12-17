@@ -1,6 +1,7 @@
-package com.example.masterjpa1.utils;
+package com.example.masterjpa1.utils.qualifiedBean;
 
 
+import com.example.masterjpa1.utils.Generator;
 import jakarta.annotation.PostConstruct;
 
 import static com.example.masterjpa1.qualifiers.advance.Generator.GeneratorType.HOTMAIL;
@@ -8,7 +9,7 @@ import static com.example.masterjpa1.qualifiers.advance.Generator.GeneratorType.
 
 //@com.example.masterjpa1.qualifiers.HotmailGenerator
 @com.example.masterjpa1.qualifiers.advance.Generator(generatorType = HOTMAIL)
-public class HotmailGenerator implements Generator{
+public class HotmailGenerator implements Generator {
     private String postPrefix;
     @PostConstruct
     private void initPostPrefix(){
