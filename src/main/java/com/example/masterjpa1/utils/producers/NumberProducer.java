@@ -16,11 +16,16 @@ import jakarta.enterprise.inject.Produces;
 
 import java.util.Random;
 
+import static com.example.masterjpa1.qualifiers.advance.NumberProducer.StringProcued.POSTFIX;
+import static com.example.masterjpa1.qualifiers.advance.NumberProducer.StringProcued.PREFIX;
+
 public class NumberProducer {
-   /* @Produces
-    private String postPrifix = "@gmail.com";*/
+    @Produces @com.example.masterjpa1.qualifiers.advance.NumberProducer(stringProduced = POSTFIX)
+    private String postPrifix = "@gmail-produced.com";
     @Produces
     private int random = Math.abs(new Random().nextInt());
-    @Produces
+
+
+    @Produces @com.example.masterjpa1.qualifiers.advance.NumberProducer(stringProduced = PREFIX)
     private String prefix = "produced-username";
 }
