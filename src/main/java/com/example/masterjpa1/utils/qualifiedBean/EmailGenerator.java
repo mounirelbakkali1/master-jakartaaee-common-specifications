@@ -1,22 +1,27 @@
-package com.example.masterjpa1.utils;
+package com.example.masterjpa1.utils.qualifiedBean;
 
+import com.example.masterjpa1.utils.Generator;
 import jakarta.annotation.PostConstruct;
+import jakarta.inject.Inject;
 
 import static com.example.masterjpa1.qualifiers.advance.Generator.GeneratorType.EMAIL;
 
 //@com.example.masterjpa1.qualifiers.EmailGenerator    <--- basic qualifier
 @com.example.masterjpa1.qualifiers.advance.Generator(generatorType = EMAIL)   //<-- qualifier with memeber
-public class EmailGenerator  implements Generator{
+public class EmailGenerator  implements Generator {
 
 
+    @Inject
+    private String prefix;
 
-    private String postPrefix;
+    /*
     @PostConstruct
     private void initPostPrefix(){
         this.postPrefix="@gmail.com";
     }
+*/
     @Override
     public String generateString() {
-        return "user10"+postPrefix;
+        return prefix+"@gmail.com";
     }
 }

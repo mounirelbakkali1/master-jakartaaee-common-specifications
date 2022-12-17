@@ -1,18 +1,11 @@
 package com.example.masterjpa1.rest;
 
 import com.example.masterjpa1.services.StudentService;
-import com.example.masterjpa1.utils.EmailGenerator;
-import com.example.masterjpa1.utils.Generator;
-import com.example.masterjpa1.utils.TextUtil;
 import com.example.masterjpa1.model.Student;
-import com.example.masterjpa1.respositories.StudentRepository;
-import jakarta.annotation.PostConstruct;
 import jakarta.inject.Inject;
-import jakarta.inject.Qualifier;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.core.Context;
-import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.UriInfo;
 
