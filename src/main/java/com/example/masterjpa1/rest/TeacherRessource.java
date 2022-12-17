@@ -14,7 +14,11 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.Scanner;
 
 import static com.example.masterjpa1.qualifiers.advance.Generator.GeneratorType.EMAIL;
 
@@ -31,7 +35,8 @@ public class TeacherRessource {
     @Inject
     private TextUtil textUtil;
 
-
+    @Inject
+    private java.nio.file.Path path;
 
     @GET
     @Path("/all")
@@ -54,5 +59,20 @@ public class TeacherRessource {
         teacher.setName(textUtil.sanitize(generator.generateString()));
         repository.saveTeacher(teacher);
         return Response.ok(teacher).build();
+    }
+
+
+    @GET
+    @Path("/filecontent")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String readInjectedFileContent() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(path.toString()));
+        String text="",line;
+        do{
+            line=reader.readLine();
+            text+= line+"\n";
+        }while (line!=null);
+        reader.close();
+        return text;
     }
 }

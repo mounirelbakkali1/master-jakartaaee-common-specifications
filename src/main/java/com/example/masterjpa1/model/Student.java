@@ -58,6 +58,10 @@ public class Student {
         this.age = age;
     }
 
+    public String toStringForList(){
+        return id+ "       " + name + "        "+ age+"    "+ email+"\n";
+    }
+
     @Override
     public String toString() {
         return "Student{" +
