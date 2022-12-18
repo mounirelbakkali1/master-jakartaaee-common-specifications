@@ -52,7 +52,7 @@ public class NumberProducer {
     @Produces
     private Path createFile() throws IOException {
         List<Student> studentList = repository.getAll();
-        Path newPath = Files.createFile(Paths.get("C:\\Users\\Youcode\\Documents\\byCreateFileFunction"+Math.abs(new Random().nextInt())+".txt"));
+        Path newPath = Files.createFile(Paths.get("C:\\Users\\Youcode\\Documents\\masterjpa-log-history\\file_"+Math.abs(new Random().nextInt())+".txt"));
         BufferedWriter writer = new BufferedWriter(new FileWriter(newPath.toString(),true));
         writer.append("------------------------------------------------------------------------------\n");
         writer.append(" id             name               age               email                   \n");
