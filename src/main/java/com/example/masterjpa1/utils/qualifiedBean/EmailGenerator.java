@@ -2,7 +2,6 @@ package com.example.masterjpa1.utils.qualifiedBean;
 
 import com.example.masterjpa1.qualifiers.advance.NumberProducer;
 import com.example.masterjpa1.utils.Generator;
-import jakarta.annotation.PostConstruct;
 import jakarta.inject.Inject;
 
 import static com.example.masterjpa1.qualifiers.advance.Generator.GeneratorType.EMAIL;
@@ -14,7 +13,7 @@ import static com.example.masterjpa1.qualifiers.advance.NumberProducer.StringPro
 public class EmailGenerator  implements Generator {
 
 
-    @Inject @NumberProducer(stringProduced = PREFIX)
+    @Inject @NumberProducer
     private String prefix;
     @Inject @NumberProducer(stringProduced = POSTFIX)
     private String postfix;

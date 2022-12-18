@@ -13,7 +13,9 @@ package com.example.masterjpa1.utils.producers;
 */
 
 import com.example.masterjpa1.model.Student;
+import com.example.masterjpa1.qualifiers.Price;
 import com.example.masterjpa1.respositories.StudentRepository;
+import jakarta.enterprise.inject.Alternative;
 import jakarta.enterprise.inject.Produces;
 import jakarta.inject.Inject;
 
@@ -30,6 +32,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+import static com.example.masterjpa1.qualifiers.Price.currency.DH;
+import static com.example.masterjpa1.qualifiers.Price.currency.EU;
 import static com.example.masterjpa1.qualifiers.advance.NumberProducer.StringProcued.POSTFIX;
 import static com.example.masterjpa1.qualifiers.advance.NumberProducer.StringProcued.PREFIX;
 import static java.nio.file.attribute.PosixFilePermission.OTHERS_READ;
@@ -48,6 +52,17 @@ public class NumberProducer {
 
     @Produces @com.example.masterjpa1.qualifiers.advance.NumberProducer(stringProduced = PREFIX)
     private String prefix = "produced-username";
+
+
+
+
+    @Produces @Price(currency = EU)
+    Float priceInEU = 18.15f;
+    @Produces @Price(currency = EU) @Alternative
+    Float ALTpriceInEU = 2.1f;
+
+    @Produces@Price(currency = DH)
+    Float priceInDH =priceInEU*8.9f;
 
     @Produces
     private Path createFile() throws IOException {
