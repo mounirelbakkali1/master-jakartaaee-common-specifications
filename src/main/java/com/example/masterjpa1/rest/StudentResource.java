@@ -1,5 +1,7 @@
 package com.example.masterjpa1.rest;
 
+import com.example.masterjpa1.qualifiers.UserDataBase;
+import com.example.masterjpa1.services.JDBCPingService;
 import com.example.masterjpa1.services.StudentService;
 import com.example.masterjpa1.model.Student;
 import jakarta.inject.Inject;
@@ -8,8 +10,10 @@ import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.UriInfo;
+import org.slf4j.Logger;
 
 import java.net.URI;
+import java.sql.SQLException;
 
 import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON;
 
@@ -21,16 +25,14 @@ public class StudentResource {
    @Inject
    StudentService service;
 
+   @Inject
+    Logger logger;
 
     @GET
     @Path("/count")
     public Response getStudentsCount(){
-        Response response = ClientBuilder.newClient()
-                .target("http://localhost:16161/MasterJPA1-1.0-SNAPSHOT/api/students/1")
-                .request(APPLICATION_JSON)
-                .get();
-        System.err.println(response.getEntity());
         var count = service.countAll();
+        logger.info("I counted all students in School Data base :)");
         if (count==0) return Response.noContent().build();
         else return Response.ok(count,"text/plain").build();
     }
