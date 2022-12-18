@@ -6,7 +6,7 @@
 -----------------------------------------
 ## Context and dependency enjection CDI 
 ## Persistence (JPA) 
-## Java Persistence API (JTA)
+## Java Transaction API (JTA)
 ## Bean Validation
 ## RestFull web service (JAX-RX)
 ## Concurrency Uils
