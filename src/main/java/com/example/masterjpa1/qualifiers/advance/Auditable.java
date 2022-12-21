@@ -10,9 +10,9 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+
 @InterceptorBinding
 @Target({METHOD,TYPE})
 @Retention(RUNTIME)
-public @interface Loggeble {
-    boolean debug() default false;
+public @interface Auditable {
 }

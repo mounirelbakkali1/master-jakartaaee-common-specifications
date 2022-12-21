@@ -8,4 +8,9 @@
         <class>com.example.masterjpa1.utils.alternativeBeans.AlternativeGenerator</class>
         <class>com.example.masterjpa1.utils.producers.NumberProducer</class>
     </alternatives>
+    <interceptors>
+        <class>com.example.masterjpa1.utils.interceptors.LogDubuggerInterceptor</class>
+        <class>com.example.masterjpa1.utils.interceptors.LogInterceptor</class>
+        <class>com.example.masterjpa1.utils.interceptors.AuditInterceptor</class>
+    </interceptors>
 </beans>

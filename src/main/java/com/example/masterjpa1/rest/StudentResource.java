@@ -21,7 +21,6 @@ import static com.example.masterjpa1.qualifiers.Price.currency.DH;
 import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @Path("/students")
-@Loggeble
 public class StudentResource {
 
 
