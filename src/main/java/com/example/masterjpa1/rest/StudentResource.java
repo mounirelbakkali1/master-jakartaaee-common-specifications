@@ -2,6 +2,7 @@ package com.example.masterjpa1.rest;
 
 import com.example.masterjpa1.qualifiers.Price;
 import com.example.masterjpa1.qualifiers.UserDataBase;
+import com.example.masterjpa1.qualifiers.advance.Loggeble;
 import com.example.masterjpa1.services.JDBCPingService;
 import com.example.masterjpa1.services.StudentService;
 import com.example.masterjpa1.model.Student;
@@ -20,6 +21,7 @@ import static com.example.masterjpa1.qualifiers.Price.currency.DH;
 import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @Path("/students")
+@Loggeble
 public class StudentResource {
 
 
