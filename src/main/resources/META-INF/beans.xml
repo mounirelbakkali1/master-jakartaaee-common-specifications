@@ -6,5 +6,6 @@
        bean-discovery-mode="all">
     <alternatives>
         <class>com.example.masterjpa1.utils.alternativeBeans.AlternativeGenerator</class>
+        <class>com.example.masterjpa1.utils.producers.NumberProducer</class>
     </alternatives>
 </beans>
